@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Premium Telegram Landing Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Telegram Landing</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
   --bg:#020617;
-  --bg2:#000000;
   --cyan:#00eaff;
   --purple:#7b2cff;
-  --text:#ffffff;
-  --gray:#b8c1d1;
+  --white:#ffffff;
+  --gray:#bfc8d8;
 }
 
 *{
@@ -32,9 +30,12 @@ body{
   justify-content:center;
   align-items:center;
   padding:20px;
+
   background:
-  radial-gradient(circle at top,#08203e 0%,#020617 35%,#000000 100%);
-  overflow-x:hidden;
+  radial-gradient(circle at top,
+  #0b2447 0%,
+  #020617 40%,
+  #000000 100%);
 }
 
 /* MAIN CONTAINER */
@@ -42,39 +43,46 @@ body{
 .container{
   width:100%;
   max-width:420px;
-  padding:35px 28px;
+
+  padding:35px 25px;
+
   border-radius:28px;
-  position:relative;
-  overflow:hidden;
 
   background:rgba(255,255,255,0.03);
 
-  border:1px solid rgba(0,234,255,0.45);
+  border:1px solid rgba(0,234,255,0.35);
+
+  backdrop-filter:blur(14px);
 
   box-shadow:
-  0 0 10px rgba(0,234,255,0.15),
-  0 0 30px rgba(0,234,255,0.10),
-  inset 0 0 20px rgba(255,255,255,0.03);
+  0 0 15px rgba(0,234,255,0.15),
+  0 0 35px rgba(0,234,255,0.08),
+  inset 0 0 20px rgba(255,255,255,0.02);
 
-  backdrop-filter:blur(12px);
+  text-align:center;
+
+  position:relative;
 
   animation:
   fadeUp 1s ease,
   borderGlow 4s infinite alternate;
 }
 
-/* GLOW BORDER EFFECT */
+/* GLOW BORDER */
 
 .container::before{
   content:"";
   position:absolute;
   inset:-1px;
   border-radius:28px;
+
   padding:1px;
-  background:linear-gradient(135deg,
-  rgba(0,234,255,0.8),
-  rgba(123,44,255,0.5),
-  rgba(0,234,255,0.8));
+
+  background:
+  linear-gradient(135deg,
+  rgba(0,234,255,0.9),
+  rgba(123,44,255,0.4),
+  rgba(0,234,255,0.9));
 
   -webkit-mask:
   linear-gradient(#fff 0 0) content-box,
@@ -88,56 +96,114 @@ body{
 
 /* PROFILE */
 
-.profile{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
 .profile-img{
   width:120px;
   height:120px;
+
   border-radius:50%;
   object-fit:cover;
 
   border:3px solid var(--cyan);
 
   box-shadow:
-  0 0 12px var(--cyan),
-  0 0 35px rgba(0,234,255,0.6);
+  0 0 15px var(--cyan),
+  0 0 40px rgba(0,234,255,0.6);
 
   animation:pulse 2.5s infinite;
 }
 
 /* ========================= */
-/* CHANGE IMAGE LINK HERE 🔥 */
+/* CHANGE IMAGE HERE 🔥 */
 /* ========================= */
 
 /*
-Replace this image link below:
+REPLACE IMAGE LINK BELOW
 
 https://i.imgur.com/8Km9tLL.png
 
-with your own image URL
+WITH YOUR OWN IMAGE LINK
 */
+
+/* LIVE COUNTER */
+
+.live-counter{
+  margin-top:14px;
+
+  color:var(--cyan);
+
+  font-size:14px;
+  font-weight:600;
+
+  text-shadow:0 0 10px rgba(0,234,255,0.7);
+}
 
 /* NAME */
 
 .name{
   margin-top:18px;
-  font-size:28px;
+
+  color:white;
+
+  font-size:30px;
   font-weight:700;
-  letter-spacing:1px;
-  color:var(--text);
+
+  text-align:center;
 
   text-shadow:
-  0 0 8px rgba(0,234,255,0.6);
+  0 0 12px rgba(0,234,255,0.6);
+}
+
+/* EXTRA BUTTON */
+
+.top-btn{
+  margin-top:18px;
+}
+
+/* BUTTONS */
+
+.buttons{
+  margin-top:28px;
+
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.btn{
+  display:block;
+
+  text-decoration:none;
+
+  padding:15px 20px;
+
+  border-radius:50px;
+
+  color:white;
+
+  font-weight:600;
+
+  transition:0.35s ease;
+
+  background:
+  linear-gradient(135deg,var(--cyan),var(--purple));
+
+  box-shadow:
+  0 0 18px rgba(0,234,255,0.35);
+}
+
+.btn:hover{
+  transform:scale(1.05);
+
+  box-shadow:
+  0 0 22px rgba(0,234,255,0.8),
+  0 0 45px rgba(123,44,255,0.5);
 }
 
 /* FEATURES */
 
 .features{
-  margin-top:28px;
+  margin-top:30px;
+  text-align:left;
 }
 
 .feature{
@@ -156,108 +222,77 @@ with your own image URL
 
 .icon{
   font-size:20px;
-  min-width:28px;
 
-  filter:drop-shadow(0 0 6px rgba(0,234,255,0.8));
+  filter:
+  drop-shadow(0 0 6px rgba(0,234,255,0.8));
 }
 
 /* DESCRIPTION */
 
 .description{
   margin-top:26px;
-  text-align:center;
+
+  color:#d2d9e4;
+
   line-height:1.7;
-  color:#d3d9e4;
-  font-size:15px;
-}
-
-/* CTA BUTTON */
-
-.cta{
-  margin-top:28px;
-  display:flex;
-  justify-content:center;
-}
-
-/* =============================== */
-/* CHANGE TELEGRAM LINK HERE 🔥 */
-/* =============================== */
-
-/*
-Replace # below with your Telegram link
-
-Example:
-https://t.me/yourchannel
-*/
-
-.cta-btn{
-  text-decoration:none;
-  color:white;
-  padding:16px 34px;
-  border-radius:50px;
-  font-weight:600;
-  letter-spacing:0.5px;
-
-  background:
-  linear-gradient(135deg,var(--cyan),var(--purple));
-
-  box-shadow:
-  0 0 18px rgba(0,234,255,0.45);
-
-  transition:0.35s ease;
-}
-
-.cta-btn:hover{
-  transform:scale(1.05);
-
-  box-shadow:
-  0 0 20px rgba(0,234,255,0.8),
-  0 0 35px rgba(123,44,255,0.5);
 }
 
 /* QUOTE */
 
 .quote{
   margin-top:28px;
-  text-align:center;
-  color:#b8c1d1;
+
+  color:#b9c1d0;
+
   font-size:14px;
-  line-height:1.7;
+
+  line-height:1.8;
 }
 
 /* BADGE */
 
 .badge{
   margin-top:28px;
-  border-radius:18px;
+
   padding:14px;
-  text-align:center;
+
+  border-radius:18px;
 
   border:1px solid rgba(0,234,255,0.25);
 
   background:rgba(255,255,255,0.02);
 
-  color:#cfd6df;
+  color:#d7deeb;
 
   font-size:13px;
 }
 
-/* =================================== */
-/* CHANGE ADVERTISE TEXT HERE 🔥 */
-/* =================================== */
-
-.badge span{
+.badge a{
   color:var(--cyan);
+  text-decoration:none;
   font-weight:600;
 }
+
+/* =============================== */
+/* CHANGE ADVERTISE LINK HERE 🔥 */
+/* =============================== */
+
+/*
+REPLACE # BELOW WITH YOUR LINK
+
+Example:
+https://t.me/yourchannel
+*/
 
 /* FOOTER */
 
 .footer{
   margin-top:22px;
-  text-align:center;
+
   font-size:11px;
+
   line-height:1.8;
+
   color:rgba(255,255,255,0.45);
 }
 
@@ -278,19 +313,19 @@ https://t.me/yourchannel
   0%{
     box-shadow:
     0 0 10px var(--cyan),
-    0 0 25px rgba(0,234,255,0.5);
+    0 0 25px rgba(0,234,255,0.4);
   }
 
   50%{
     box-shadow:
-    0 0 18px var(--cyan),
+    0 0 20px var(--cyan),
     0 0 45px rgba(0,234,255,0.9);
   }
 
   100%{
     box-shadow:
     0 0 10px var(--cyan),
-    0 0 25px rgba(0,234,255,0.5);
+    0 0 25px rgba(0,234,255,0.4);
   }
 }
 
@@ -298,13 +333,13 @@ https://t.me/yourchannel
   from{
     box-shadow:
     0 0 10px rgba(0,234,255,0.12),
-    0 0 25px rgba(0,234,255,0.08);
+    0 0 25px rgba(0,234,255,0.06);
   }
 
   to{
     box-shadow:
     0 0 18px rgba(0,234,255,0.25),
-    0 0 40px rgba(0,234,255,0.18);
+    0 0 40px rgba(0,234,255,0.15);
   }
 }
 
@@ -312,17 +347,8 @@ https://t.me/yourchannel
 
 @media(max-width:480px){
 
-  .container{
-    padding:30px 22px;
-  }
-
   .name{
-    font-size:24px;
-  }
-
-  .cta-btn{
-    width:100%;
-    text-align:center;
+    font-size:25px;
   }
 
 }
@@ -334,21 +360,41 @@ https://t.me/yourchannel
 
 <div class="container">
 
-  <!-- PROFILE HEADER -->
+  <!-- PROFILE IMAGE -->
 
-  <div class="profile">
+  <!-- ===================== -->
+  <!-- CHANGE IMAGE HERE 🔥 -->
+  <!-- ===================== -->
 
-    <!-- ======================= -->
-    <!-- CHANGE IMAGE HERE 🔥 -->
-    <!-- ======================= -->
+  <img
+    src="https://i.imgur.com/8Km9tLL.png"
+    class="profile-img"
+    alt="Profile"
+  >
 
-    <img
-      src="logo.png"
-      class="profile-img"
-      alt="Profile"
-    >
+  <!-- LIVE COUNTER -->
 
-    <h1 class="name">MUNAAF TRADER ( మునాఫ్ వ్యాపారి తెలుగు ) </h1>
+  <div class="live-counter">
+    🔴 Live Traders: <span id="counter">876</span>
+  </div>
+
+  <!-- NAME -->
+
+  <div class="name">
+    PANKAJ BHARDWAJ
+  </div>
+
+  <!-- EXTRA BUTTON -->
+
+  <div class="top-btn">
+
+    <!-- ============================ -->
+    <!-- CHANGE FIRST BUTTON LINK 🔥 -->
+    <!-- ============================ -->
+
+    <a href="#" class="btn">
+      WATCH FREE SESSION
+    </a>
 
   </div>
 
@@ -384,15 +430,15 @@ https://t.me/yourchannel
     Join our learning community and grow your knowledge
   </div>
 
-  <!-- CTA BUTTON -->
+  <!-- SECOND BUTTON -->
 
-  <div class="cta">
+  <div class="buttons">
 
-    <!-- ============================ -->
-    <!-- CHANGE TELEGRAM LINK 🔥 -->
-    <!-- ============================ -->
+    <!-- =============================== -->
+    <!-- CHANGE TELEGRAM BUTTON LINK 🔥 -->
+    <!-- =============================== -->
 
-    <a href="https://t.me/+1_wCz_W1naYyZWU1" class="cta-btn">
+    <a href="#" class="btn">
       JOIN TELEGRAM
     </a>
 
@@ -407,8 +453,17 @@ https://t.me/yourchannel
   <!-- BADGE -->
 
   <div class="badge">
-    రోజువారీ ప్రత్యక్ష మార్కెట్ 
-    <span> అప్‌డేట్ 📈 </span>
+
+    This Channel Advertise By
+
+    <!-- ================================= -->
+    <!-- CHANGE ADVERTISE LINK HERE 🔥 -->
+    <!-- ================================= -->
+
+    <a href="#">
+      SNOW AGENCY
+    </a>
+
   </div>
 
   <!-- FOOTER -->
@@ -422,13 +477,17 @@ https://t.me/yourchannel
 
 <script>
 
-/* SIMPLE FADE-IN STAGGER */
+/* LIVE COUNTER */
 
-const features = document.querySelectorAll('.feature');
+let count = 876;
 
-features.forEach((item,index)=>{
-  item.style.animationDelay = `${index * 0.15}s`;
-});
+setInterval(() => {
+
+  count += Math.floor(Math.random() * 3);
+
+  document.getElementById("counter").innerText = count;
+
+}, 3000);
 
 </script>
 
